@@ -1,0 +1,16 @@
+{
+  "name": "dmcli",
+  "version": "1.0.0",
+  "description": "Organize Links for D&D Campaigns",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bobby Tate",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.1.0",
+    "open": "^8.2.0"
+  }
+}
