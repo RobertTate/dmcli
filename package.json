@@ -10,6 +10,7 @@
   "author": "Bobby Tate",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^4.1.1",
     "inquirer": "^8.1.0",
     "open": "^8.2.0"
   }
