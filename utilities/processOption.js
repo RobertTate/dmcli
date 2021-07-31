@@ -2,9 +2,7 @@ const inquirer = require('inquirer');
 const open = require('open');
 const chalk = require('chalk');
 
-function prettyLog(text) {
-  console.log(`\n\n${chalk.greenBright(text)}\n\n`);
-}
+const { prettyLog } = require('./prettyLog');
 
 async function processOption(optionObj, optionType) {
   const processByType = {
