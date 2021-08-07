@@ -12,7 +12,7 @@ async function processSectionContent(content, headingText) {
       type: 'list',
       name: 'option',
       message: `Select an ${chalk.yellowBright.bold('Option')} from ${chalk.green.bold(headingText)}:`,
-      choices: [...Object.keys(data), backButton]
+      choices: [...Object.keys(data), 'Roll Initiative!', backButton]
     });
 
     console.clear();

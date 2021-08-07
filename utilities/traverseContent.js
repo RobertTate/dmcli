@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 
 const { processSectionContent } = require('./processSectionContent');
+const { warningLog } = require('./customLogs');
 
 async function traverseContent(filepath) {
   console.clear();
@@ -12,13 +13,26 @@ async function traverseContent(filepath) {
   let headingText = currentFilePath.split('/').pop();
 
   if (fs.existsSync(datapath)) {
-    let content = JSON.parse(fs.readFileSync(datapath, 'utf8', 'r'));
-    await processSectionContent(content, headingText);
-    currentFilePath = currentFilePath.split("/").slice(0, -1).join('/');
-    headingText = currentFilePath.split('/').pop();
+    let fileLength = fs.readFileSync(datapath, 'utf8', 'r').length;
+    if (fileLength > 0) {
+      let content = JSON.parse(fs.readFileSync(datapath, 'utf8', 'r'));
+      await processSectionContent(content, headingText);
+    } else {
+      warningLog('There is a data.json file present, but it\'s empty!')
+    }
+    currentFilePath = updateFilePath(currentFilePath);
+    headingText = updateHeadingText(currentFilePath);
   }
   
-  let nextFolderOptions = fs.readdirSync(`./campaigns/${currentFilePath}`, 'utf8');  
+  let nextFolderOptions = getFolderContents(currentFilePath);
+
+  if (nextFolderOptions.length === 0) {
+    warningLog('This folder has no content!');
+    currentFilePath = updateFilePath(currentFilePath);
+    headingText = updateHeadingText(currentFilePath);
+    nextFolderOptions = getFolderContents(currentFilePath);
+  }
+
   const goBackButton = chalk.red.bold('Go Back');
 
   const { nextFolder } = await inquirer.prompt({
@@ -28,7 +42,7 @@ async function traverseContent(filepath) {
     choices: [...nextFolderOptions, goBackButton]
   });
 
-  if (nextFolderOptions.includes(nextFolder)) {
+  if (nextFolderOptions.length > 0 && nextFolderOptions.includes(nextFolder)) {
     let nextFilepath = `${currentFilePath}/${nextFolder}`;
     await traverseContent(nextFilepath);
   } else {
@@ -37,6 +51,20 @@ async function traverseContent(filepath) {
       await traverseContent(nextFilepath);
     }
   }
+}
+
+function getFolderContents(currentFilePath) {
+  return fs.readdirSync(`./campaigns/${currentFilePath}`, 'utf8').filter((item) => {
+    return !item.includes('json');
+  });
+}
+
+function updateFilePath(currentFilePath) {
+  return currentFilePath.split("/").slice(0, -1).join('/');
+}
+
+function updateHeadingText(headingText) {
+  return headingText.split('/').pop();
 }
 
 module.exports = { traverseContent }

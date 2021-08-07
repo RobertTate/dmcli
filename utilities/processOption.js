@@ -2,19 +2,19 @@ const inquirer = require('inquirer');
 const open = require('open');
 const chalk = require('chalk');
 
-const { prettyLog } = require('./prettyLog');
+const { prettyLog, warningLog, actionLog } = require('./customLogs');
 
 async function processOption(optionObj, optionType) {
   const processByType = {
     "Links": async (links) => {
-      console.log(chalk.cyanBright.bold('Opening Links...'));
+      actionLog('Opening Links...');
       if (links.length > 0) {
         links.forEach( async (link) => {
           await open(link);        
         });
       } else {
-        console.log(chalk.redBright.bold('No Links to Open.'))
-      }
+        warningLog('No Links to Open.');
+      };
     },
     "Text": (text) => {
       prettyLog(text);
@@ -38,6 +38,9 @@ async function processOption(optionObj, optionType) {
           prettyLog(topics[topic]);
         };
       };
+    },
+    "Roll Initiative!" : () => {
+      warningLog('Still Under Construction!');
     }
   };
   await processByType[optionType](optionObj);
