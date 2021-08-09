@@ -1,6 +1,6 @@
-# DMCLI - A CLI for Organizing your DM Notes.
+# DMCLI - A Command Line Tool for Dungeon Masters.
 
-DMCLI is a tool that makes it easier to organize and reference your notes as a dungeon master, while also allowing you to feel like you are a hacker from an 80's movie.
+DMCLI is a tool that makes it easier to organize and reference your notes as a dungeon master, while also allowing you to feel like you're a hacker from an 80's movie.
 
 # How do I install DMCLI?
 
