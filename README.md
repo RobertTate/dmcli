@@ -1,9 +1,50 @@
 # DMCLI - A CLI for Organizing your DM Notes.
 
-DMCLI is a command line interface that I'm working on to make it easier for me to organize my DND notes as a dungeon master. Making it also helped me ingest the content from the Lost Mines of Phandelver campaign, because I had to make little JSON files for all the different content. 
+DMCLI is a tool that makes it easier to organize and reference your notes as a dungeon master, while also allowing you to feel like you are a hacker from an 80's movie.
 
-### TO DO's:
+# How do I install DMCLI?
 
-- I still also need/want to get it set up as a CLI you can download and use globally from npm.
-- I want to add an initiative tracker feature
-- I want to add a way to add / edit content without having to edit json files directly.
+Right now, you can clone the repo and run `npm install` and then `npm start`. However I plan to make it an npm package that you can install globally at some point, and then run by typing in `dmcli`. Getting there.
+
+# How do I use DMCLI? 
+
+DMCLI will look for a top level folder called `campaigns` in the project folder. Inside that, you put whatever kind of folder structure you want for organizing your content. 
+
+For instance, your folder structure could look like:
+
+`campaigns\Phandelver\01 - Goblin Arrows\01 - Goblin Ambush\data.json`
+
+Once you are in a folder where you want to add content...you'll need to add a json file, named `data.json`.
+
+This is what the json structure should look like in order to use the tool:
+
+```json
+{
+  "data": {
+    "Links": [
+      "https://5e.tools/bestiary.html#goblin_mm"
+    ],
+    "Text": "Read the boxed text on Page 6. This is the first encounter of the campaign.",
+    "Topics": {
+      "Inspect the horses": "The saddlebags have been looted. Nearby is an empty leather map case.",
+      "What the Goblins Know": "Can be found on page 8 of the DM Book",
+      "What happens if the Goblins win": "The players wake up uncouncious, looted, wagon gone. They should continue to Phandalin, buy new gear, return to the ambush site, and find the goblin's trail to Cragmaw Hideout.",
+      "The Goblin Trail": "With a DC 10 Survival Check - the players learn more about the trail north to Cragmaw Hideout. They can see signs of two human sized bodies being hauled away from the ambush site.The trail is 5 miles before reaching the hidout.\n\nCONFIRM MARCHING ORDER.\n\n10 minutes in, there's a SNARE that will snag someones leg and pull them 10 feet into the air, if they fail a DC 10 Dex Saving Throw. If not carefully lowered down, the player takes 1D6 bludgeoning damage.\n\n10 more minutes in, there's a PIT trap. DC 15 Perception needed to detect. DC 10 Dex Saving throw to not fall in."
+    }
+  }
+}
+```
+---
+You've got a few options within each content item:
+
+## Links
+Accepts an array of url's. When you select this option in the dropdown, all the urls in the array will open in new tabs in your default browser.
+
+## Text
+A place to put text. Selecting this option will display the text. Use how you see fit.
+
+## Topics
+Accepts as many topics as you want. Selecting this option will take you to another dropdown, showing the topics. From there, you can choose one and it'll display the text.
+
+## Roll Initiative!
+You can find this option in every content item, and also at the main menu. It doesn't require anything added to the content's `data.json` file. Selecting this option will start up an initiative tracker tool.
