@@ -15,7 +15,9 @@ const InitiativeTracker = require('./utilities/initiativeTracker');
     showBanner();
     const quitButton = chalk.red.bold('Quit');
     const initiativeButton = chalk.greenBright.bold('Roll Initiative!');
-    const campaigns = fs.readdirSync('./campaigns', 'utf8');
+    const campaigns = fs.readdirSync('./campaigns', 'utf8').filter((item) => {
+      return fs.lstatSync(`./campaigns/${item}`).isDirectory();
+    });
     const { campaign } = await inquirer.prompt({
       type: 'list',
       name: 'campaign',
