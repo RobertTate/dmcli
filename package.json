@@ -1,7 +1,7 @@
 {
   "name": "dmcli",
   "version": "1.0.0",
-  "description": "Organize Links for D&D Campaigns",
+  "description": "A Command Line Tool for Dungeon Masters",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
