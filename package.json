@@ -11,6 +11,17 @@
     "dmcli": "./cli.js"
   },
   "author": "Bobby Tate",
+  "keywords": [
+    "Dungeons & Dragons",
+    "D&D",
+    "Dungeon Master",
+    "CLI",
+    "Command Line Interface",
+    "command-line",
+    "terminal",
+    "shell",
+    "gaming"
+  ],
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.1",

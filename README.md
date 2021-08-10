@@ -2,13 +2,17 @@
 
 DMCLI is a tool that makes it easier to organize and reference your notes as a dungeon master, while also allowing you to feel like you're a hacker from an 80's movie.
 
-# How do I install DMCLI?
+## How do I install DMCLI?
 
-Right now, you can clone the repo and run `npm install` and then `npm start`. However I plan to make it an npm package that you can install globally at some point, and then run by typing in `dmcli`. Getting there.
+```
+npm install -g @robert-tate/dmcli
+````
 
-# How do I use DMCLI? 
+## How do I use DMCLI? 
 
-DMCLI will look for a top level folder called `campaigns` in the project folder. Inside that, you put whatever kind of folder structure you want for organizing your content. 
+Start the CLI by typing `dmcli` in your terminal.
+
+Inside the `campaigns` folder, add whatever kind of folder structure you want for organizing your content.
 
 For instance, your folder structure could look like:
 
@@ -16,7 +20,7 @@ For instance, your folder structure could look like:
 
 Once you are in a folder where you want to add content...you'll need to add a json file, named `data.json`.
 
-This is what the json structure should look like in order to use the tool:
+This is an example of what the json structure should look like in order to use the tool:
 
 ```json
 {
