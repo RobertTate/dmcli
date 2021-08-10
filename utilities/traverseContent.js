@@ -1,4 +1,6 @@
 const fs = require('fs');
+const { join } = require('path');
+
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 
@@ -12,10 +14,10 @@ async function traverseContent(filepath) {
   let datapath = `./campaigns/${currentFilePath}/data.json`;
   let headingText = currentFilePath.split('/').pop();
 
-  if (fs.existsSync(datapath)) {
-    let fileLength = fs.readFileSync(datapath, 'utf8', 'r').length;
+  if (fs.existsSync(join(__basedir, datapath))) {
+    let fileLength = fs.readFileSync(join(__basedir, datapath), 'utf8', 'r').length;
     if (fileLength > 0) {
-      let content = JSON.parse(fs.readFileSync(datapath, 'utf8', 'r'));
+      let content = JSON.parse(fs.readFileSync(join(__basedir, datapath), 'utf8', 'r'));
       await processSectionContent(content, headingText);
     } else {
       warningLog('There is a data.json file present, but it\'s empty!')
@@ -54,7 +56,7 @@ async function traverseContent(filepath) {
 }
 
 function getFolderContents(currentFilePath) {
-  return fs.readdirSync(`./campaigns/${currentFilePath}`, 'utf8').filter((item) => {
+  return fs.readdirSync(join(__basedir, `./campaigns/${currentFilePath}`), 'utf8').filter((item) => {
     return !item.includes('json');
   });
 }

@@ -1,10 +1,16 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
+const { join } = require('path');
+
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 
 const { showBanner } = require('./utilities/showBanner');
 const { getCampaignContent } = require('./utilities/getCampaignContent');
 const InitiativeTracker = require('./utilities/initiativeTracker');
+
+global.__basedir = __dirname;
 
 ( async () => {
   let keepGoing = true;
@@ -15,8 +21,8 @@ const InitiativeTracker = require('./utilities/initiativeTracker');
     showBanner();
     const quitButton = chalk.red.bold('Quit');
     const initiativeButton = chalk.greenBright.bold('Roll Initiative!');
-    const campaigns = fs.readdirSync('./campaigns', 'utf8').filter((item) => {
-      return fs.lstatSync(`./campaigns/${item}`).isDirectory();
+    const campaigns = fs.readdirSync(join(__basedir,'./campaigns'), 'utf8').filter((item) => {
+      return fs.lstatSync(join(__basedir, `./campaigns/${item}`)).isDirectory();
     });
     const { campaign } = await inquirer.prompt({
       type: 'list',
