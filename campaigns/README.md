@@ -1,28 +1,18 @@
-# DMCLI - A Command Line Tool for Dungeon Masters.
+# ⚡ Welcome to DMCLI! ⚡
 
-DMCLI is a tool that makes it easier to organize and reference your notes as a dungeon master, while also allowing you to feel like you're a hacker from an 80's movie.
+You're currently in the campaigns folder. You know what you should put it in? Your campaign content. Here's an example of how to add some:
 
-## How do I install DMCLI?
+Lets say I want to break up my campaign content by both `Places`, and `Events`. To do this: 
 
-```
-npm install -g @robert-tate/dmcli
-```
+* First, decide on your top level campaign folder name and create it here. Let's just say you decided to call your campaign `Umsvarladden`.
 
-## How do I use DMCLI? 
+* Then, inside `Umsvarladden`, make subfolders called `Places`, and `Events`.
 
-* Start the CLI by typing `dmcli` in your terminal.
+- Then, inside those folders, keep going. Break up your content with more subfolders however it makes sense to you.
 
-* To add your first campaign, select the `Open Campaigns Folder` option from the main menu.
+- Once you get to a place where you feel like there should actually be content there, instead of more folders, add a file there and name it: `data.json`.
 
-* Inside the `campaigns` folder, add whatever kind of folder structure you want for organizing your content.
-
-For instance, your folder structure could look like:
-
-`campaigns\Phandelver\01 - Goblin Arrows\01 - Goblin Ambush\data.json`
-
-Once you are in a folder where you want to add content...you'll need to add a json file, named `data.json`.
-
-This is an example of what the json structure should look like in order to use the tool:
+The `data.json` file must follow this structure:
 
 ```json
 {
@@ -40,20 +30,17 @@ This is an example of what the json structure should look like in order to use t
   }
 }
 ```
----
+
 You've got a few options within each section of the json file:
 
 ## Links
-Accepts an array of url's. Selecting this option while using DMCLI will result in all the urls in the array opening in new tabs in your default browser.
+Accepts an array of url's. Selecting this option while using DMCLI will result in all the urls in the array opening in new tabs in your default browser. I find this super helpful if I am running an encounter and need a quick way to get all of the monster stats in front of me.
 
 ## Text
-A place to put text. Selecting this option while using DMCLI will display the text. Use how you see fit.
+A place to put text. Selecting this option while using DMCLI will display the text. Use how you see fit. I like using this for a more general overview type of blurb, for what this section of content represents.
 
 ## Topics
 Accepts as many topics as you want. Selecting this option while using DMCLI will take you to another dropdown, showing the topics. From there, you can select one to display its text.
-
-## Roll Initiative!
-You can find this option in every content item, and also at the main menu. It doesn't require anything added to the content's `data.json` file. Selecting this option will start up an initiative tracker tool.
 
 ---
 

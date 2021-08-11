@@ -11,6 +11,10 @@
     "dmcli": "./cli.js"
   },
   "author": "Bobby Tate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RobertTate/dmcli"
+  },
   "keywords": [
     "Dungeons & Dragons",
     "D&D",

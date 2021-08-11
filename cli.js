@@ -5,6 +5,7 @@ const { join } = require('path');
 
 const inquirer = require('inquirer');
 const chalk = require('chalk');
+const open = require('open');
 
 const { showBanner } = require('./utilities/showBanner');
 const { getCampaignContent } = require('./utilities/getCampaignContent');
@@ -21,6 +22,7 @@ global.__basedir = __dirname;
     showBanner();
     const quitButton = chalk.red.bold('Quit');
     const initiativeButton = chalk.greenBright.bold('Roll Initiative!');
+    const openCampaignDirectory = chalk.yellow.bold('Open Campaigns Folder');
     const campaigns = fs.readdirSync(join(__basedir,'./campaigns'), 'utf8').filter((item) => {
       return fs.lstatSync(join(__basedir, `./campaigns/${item}`)).isDirectory();
     });
@@ -28,7 +30,7 @@ global.__basedir = __dirname;
       type: 'list',
       name: 'campaign',
       message: `Choose Your ${chalk.blue.bold('Campaign')}:`,
-      choices: [...campaigns, initiativeButton, quitButton]
+      choices: [...campaigns, initiativeButton, openCampaignDirectory, quitButton]
     });
 
     if(campaign === quitButton) {
@@ -36,6 +38,8 @@ global.__basedir = __dirname;
     } else if (campaign === initiativeButton) {
       const it = new InitiativeTracker();
       await it.start();
+    } else if (campaign === openCampaignDirectory) {
+      open(join(__basedir,'./campaigns'));
     } else {
       await getCampaignContent(campaign);
     }
