@@ -39,7 +39,7 @@ global.__basedir = __dirname;
       const it = new InitiativeTracker();
       await it.start();
     } else if (campaign === openCampaignDirectory) {
-      open(join(__basedir,'./campaigns'));
+      await open(join(__basedir,'./campaigns'));
     } else {
       await getCampaignContent(campaign);
     }

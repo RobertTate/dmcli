@@ -55,6 +55,20 @@ Accepts as many topics as you want. Selecting this option while using DMCLI will
 ## Roll Initiative!
 You can find this option in every content item, and also at the main menu. It doesn't require anything added to the content's `data.json` file. Selecting this option will start up an initiative tracker tool.
 
----
+# Campaign Configurations
+For each campaign, you can put one file named `config.json` inside the top level campaign folder. For example:
+* `campaigns\Phandelver\config.json`
 
+Inside `config.json` you may add the names of your campaign's players.
+
+```json
+{
+  "players": ["Sakoontra", "Sigrid", "Soyu", "Wirt", "Ivory Jones"]
+}
+
+```
+
+If formatted the same as shown above, the Initiative Tracker can use this configuration to add those players to the encounter automatically.
+
+---
 *That's all for now! Happy DM'ing* 😄

@@ -42,6 +42,21 @@ A place to put text. Selecting this option while using DMCLI will display the te
 ## Topics
 Accepts as many topics as you want. Selecting this option while using DMCLI will take you to another dropdown, showing the topics. From there, you can select one to display its text.
 
+# Campaign Configurations
+For each campaign, you can put one file named `config.json` inside the top level campaign folder. For example:
+* `campaigns\Phandelver\config.json`
+
+Inside `config.json` you may add the names of your campaign's players.
+
+```json
+{
+  "players": ["Sakoontra", "Sigrid", "Soyu", "Wirt", "Ivory Jones"]
+}
+
+```
+
+If formatted the same as shown above, the Initiative Tracker can use this configuration to add those players to the encounter automatically.
+
 ---
 
 *That's all for now! Happy DM'ing* 😄
