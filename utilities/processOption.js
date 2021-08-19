@@ -3,7 +3,6 @@ const open = require('open');
 const chalk = require('chalk');
 
 const { prettyLog, warningLog, actionLog } = require('./customLogs');
-const InitiativeTracker = require('./initiativeTracker');
 
 async function processOption(optionObj, optionType) {
   const processByType = {
@@ -39,10 +38,6 @@ async function processOption(optionObj, optionType) {
           prettyLog(topics[topic]);
         };
       };
-    },
-    "Roll Initiative!" : async () => {
-      const it = new InitiativeTracker();
-      await it.start();
     }
   };
   await processByType[optionType](optionObj);

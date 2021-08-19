@@ -190,14 +190,14 @@ class InitiativeTracker {
     };
   };
 
-  showTurnBanner(char) {
-    console.log(`Turn: ${prettyStyle(char.name)}. HP: ${warningStyle(char.hp)}`);
-  }
-
   showCharacterOrder(currentCharacter) {
     this.characters.forEach((char) => {
-      if (char === currentCharacter) {
+      if (char === currentCharacter && char.hp <= 0) {
+        console.log(`${warningStyle(char.hp)} HP - ${warningStyle(char.name)} <-- Current Turn`);
+      } else if (char === currentCharacter) {
         console.log(`${warningStyle(char.hp)} HP - ${prettyStyle(char.name)} <-- Current Turn`);
+      } else if (char.hp <= 0) {  
+        console.log(`${warningStyle(char.hp)} HP - ${warningStyle(char.name)}`);
       } else {
         console.log(`${warningStyle(char.hp)} HP - ${actionStyle(char.name)}`);
       }
@@ -269,7 +269,6 @@ class InitiativeTracker {
 
     while (continueTurn) {
       this.showCharacterOrder(currentCharacter);
-      this.showTurnBanner(currentCharacter);
       let { choice } = await inquirer.prompt({
         type: 'list',
         name: 'choice',
