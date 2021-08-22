@@ -1,14 +1,16 @@
 # DMCLI - A Command Line Tool for Dungeon Masters.
 
+![](./images/dmcli-main-menu.jpg?raw=true)
+
 DMCLI is a tool that makes it easier to organize and reference your notes as a dungeon master, while also allowing you to feel like you're a hacker from an 80's movie.
 
-## How do I install DMCLI?
+# How do I install DMCLI?
 
 ```
 npm install -g @robert-tate/dmcli
 ```
 
-## How do I use DMCLI? 
+# How do I use DMCLI? 
 
 * Start the CLI by typing `dmcli` in your terminal.
 
@@ -52,7 +54,7 @@ A place to put text. Selecting this option while using DMCLI will display the te
 ## Topics
 Accepts as many topics as you want. Selecting this option while using DMCLI will take you to another dropdown, showing the topics. From there, you can select one to display its text.
 
-## Roll Initiative!
+# Roll Initiative!
 You can find this option in every content item, and also at the main menu. It doesn't require anything added to the content's `data.json` file. Selecting this option will start up an initiative tracker tool.
 
 # Campaign Configurations
@@ -69,6 +71,12 @@ Inside `config.json` you may add the names of your campaign's players.
 ```
 
 If formatted the same as shown above, the Initiative Tracker can use this configuration to add those players to the encounter automatically.
+
+
+# Search 5e Content
+This option allows you to search a number of types of content from Dungeons and Dragons, 5th Edition. Current selections include **classes, conditions, damage types, equipment, languages, magic items, magic schools, monsters, proficiencies, races,** and **spells**.
+
+Thanks to <a href="https://www.dnd5eapi.co/" target="_blank">D&D 5e API</a>, an open source D&D RESTful API, for supplying this content!
 
 ---
 *That's all for now! Happy DM'ing* 😄

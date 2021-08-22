@@ -10,6 +10,7 @@ const open = require('open');
 const { showBanner } = require('./utilities/showBanner');
 const { getCampaignContent } = require('./utilities/getCampaignContent');
 const InitiativeTracker = require('./utilities/initiativeTracker');
+const search5eContent = require('./utilities/search5eContent');
 
 global.__basedir = __dirname;
 
@@ -20,21 +21,32 @@ global.__basedir = __dirname;
 
   while (keepGoing) {
     showBanner();
-    const quitButton = chalk.red.bold('Quit');
+
     const initiativeButton = chalk.greenBright.bold('Roll Initiative!');
     const openCampaignDirectory = chalk.yellow.bold('Open Campaigns Folder');
+    const search5eContentButton = chalk.blueBright.bold('Search 5e Content');
+    const quitButton = chalk.red.bold('Quit');
+
     const campaigns = fs.readdirSync(join(__basedir,'./campaigns'), 'utf8').filter((item) => {
       return fs.lstatSync(join(__basedir, `./campaigns/${item}`)).isDirectory();
     });
+    
     const { campaign } = await inquirer.prompt({
       type: 'list',
       name: 'campaign',
       message: `Choose Your ${chalk.blue.bold('Campaign')}:`,
-      choices: [...campaigns, initiativeButton, openCampaignDirectory, quitButton]
+      choices: [
+        ...campaigns,
+        initiativeButton, 
+        openCampaignDirectory,
+        search5eContentButton, 
+        quitButton]
     });
 
     if(campaign === quitButton) {
       keepGoing = false;
+    } else if (campaign === search5eContentButton) {
+      await search5eContent();
     } else if (campaign === initiativeButton) {
       const it = new InitiativeTracker();
       await it.start();
