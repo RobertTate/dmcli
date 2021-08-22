@@ -1,4 +1,5 @@
 function showBanner() {
+  console.log('                                        ');
   console.log('Welcome to...')
   console.log('                                        ');
   console.log('  ██████╗ ███╗   ███╗ ██████╗██╗     ██╗');
