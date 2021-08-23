@@ -25,11 +25,11 @@ function actionStyle(text) {
 }
 
 function blueLog(text) {
-  console.log(`\n\n${chalk.cyanBright.bold(text)}\n\n`);
+  console.log(`\n\n${chalk.blueBright.bold(text)}\n\n`);
 }
 
 function blueStyle(text) {
-  return chalk.cyanBright.bold(text);
+  return chalk.blueBright.bold(text);
 }
 
 module.exports = { 

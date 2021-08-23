@@ -4,14 +4,16 @@ const fuzzy = require('fuzzy');
 const chalk = require('chalk');
 const prettyoutput = require('prettyoutput')
 
-const { warningLog, prettyStyle, blueStyle } = require('./customLogs');
+const { warningLog, prettyStyle, blueStyle, actionLog } = require('./customLogs');
 
 inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'));
 
 async function traverse5eApi(urlSegment) {
   try {
+    actionLog('Loading...')
     let request = await fetch(`https://www.dnd5eapi.co/api/${urlSegment}`);
     let response = await request.json();
+    console.clear();
 
     if (response.results && response.results.length > 0) {
       const goBackButton = chalk.red.bold('Go Back');
@@ -22,7 +24,7 @@ async function traverse5eApi(urlSegment) {
       let { selection } = await inquirer.prompt({
         type: 'autocomplete',
         name: 'selection',
-        message: "Start typing to find what you're looking for.",
+        message: `Make a selection in ${blueStyle(urlSegment)}:`,
         source:  async (answers, input) => {
           const fuzzyResult = await fuzzy.filter(input || "", resultNames);          
           let fuzzyResultNames = [];
@@ -62,7 +64,7 @@ async function displayItem(response) {
     let { itemProp } = await inquirer.prompt({
       type: 'list',
       name: 'itemProp',
-      message: "View this selection's properties:",
+      message: `View the properties of ${blueStyle(response.name)}:`,
       choices: [
         ...Object.keys(response),
         goBackButton
