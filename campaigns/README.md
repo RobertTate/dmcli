@@ -1,6 +1,10 @@
 # ⚡ Welcome to DMCLI! ⚡
 
-You're currently in the campaigns folder. You know what you should put it in? Your campaign content. Here's an example of how to add some:
+You're currently in the campaigns folder. You know what you should put it in? Your campaign content. 
+
+There are two ways you can add / edit / remove campaign content. The first is while using DMCLI. The second is manually moving / adding folders and `data.json` files in the `campaigns` folder.
+
+**If you want to add campaign content manually:**
 
 Lets say I want to break up my campaign content by both `Places`, and `Events`. To do this: 
 
@@ -31,16 +35,16 @@ The `data.json` file must follow this structure:
 }
 ```
 
-You've got a few options within each section of the json file:
+There are 3 properties to the json file:
 
 ## Links
-Accepts an array of url's. Selecting this option while using DMCLI will result in all the urls in the array opening in new tabs in your default browser. I find this super helpful if I am running an encounter and need a quick way to get all of the monster stats in front of me.
+Accepts an array of url's. Selecting this option while using DMCLI will result in all the urls in the array opening in new tabs in your default browser. I find this super helpful when running an encounter and need a quick way to get all of the monster stats in front of me.
 
 ## Text
-A place to put text. Selecting this option while using DMCLI will display the text. Use how you see fit. I like using this for a more general overview type of blurb, for what this section of content represents.
+Accepts a string. Selecting this option while using DMCLI will display the string. Use how you see fit. I like using this for a more general overview, describing this section of the campaign.
 
 ## Topics
-Accepts as many topics as you want. Selecting this option while using DMCLI will take you to another dropdown, showing the topics. From there, you can select one to display its text.
+Accepts an object which accepts keys with values equal to strings. Selecting this option while using DMCLI will take you to another dropdown, showing the topics. From there, you can select a topic to display its text.
 
 # Campaign Configurations
 For each campaign, you can put one file named `config.json` inside the top level campaign folder. For example:
@@ -55,7 +59,9 @@ Inside `config.json` you may add the names of your campaign's players.
 
 ```
 
-If formatted the same as shown above, the Initiative Tracker can use this configuration to add those players to the encounter automatically.
+If formatted the same as shown above, the Initiative Tracker can use this configuration to add those players to any encounter automatically.
+
+You also have the option to add this config file and add / remove players from a campaign from within DCMLI.
 
 ---
 

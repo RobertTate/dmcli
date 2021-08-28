@@ -1,14 +1,16 @@
 const inquirer = require('inquirer');
 const open = require('open');
 const chalk = require('chalk');
+const prettyoutput = require('prettyoutput');
 
-const { prettyLog, warningLog, actionLog } = require('./customLogs');
+const { prettyLog, warningLog, actionStyle } = require('../styles/chalkFunctions');
 
 async function processOption(optionObj, optionType) {
   const processByType = {
     "Links": async (links) => {
-      actionLog('Opening Links...');
       if (links.length > 0) {
+        console.log(actionStyle('Opening:'));
+        console.log(prettyoutput(links));
         links.forEach( async (link) => {
           await open(link);        
         });
@@ -17,11 +19,21 @@ async function processOption(optionObj, optionType) {
       };
     },
     "Text": (text) => {
-      prettyLog(text);
+      if (text) {
+        prettyLog(text);
+      } else {
+        warningLog('Text is Empty.')
+      }
     },
     "Topics": async (topics) => {
       const backButton = chalk.red.bold('Go Back');
       let keepGoing = true;
+
+      if (Object.keys(topics).length === 0) {
+        warningLog('No Topics Have Been Added.');
+        keepGoing = false;
+      }
+
       while (keepGoing) {
         const { topic } = await inquirer.prompt({
           type: 'list',

@@ -11,8 +11,8 @@ const {
   prettyLog,
   prettyStyle,
   blueStyle
-} = require('./customLogs');
-const ADD_CHARACTER_QUESTIONS = require('./constants/addCharacterQuestions');
+} = require('../styles/chalkFunctions');
+const ADD_CHARACTER_QUESTIONS = require('../constants/addCharacterQuestions');
 
 class Character {
   constructor(name, hp, roll) {

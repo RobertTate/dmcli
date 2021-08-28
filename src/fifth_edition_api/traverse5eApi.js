@@ -4,7 +4,7 @@ const fuzzy = require('fuzzy');
 const chalk = require('chalk');
 const prettyoutput = require('prettyoutput')
 
-const { warningLog, prettyStyle, blueStyle, actionLog } = require('./customLogs');
+const { warningLog, prettyStyle, blueStyle, actionLog } = require('../styles/chalkFunctions');
 
 inquirer.registerPrompt('autocomplete', require('inquirer-autocomplete-prompt'));
 
