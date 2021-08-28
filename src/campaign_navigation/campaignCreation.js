@@ -8,6 +8,8 @@ const open = require('open');
 const { warningLog, warningStyle, magentaStyle, yellowStyle, actionLog, prettyLog } = require('../styles/chalkFunctions');
 
 async function createNewCampaign() {
+  console.clear();
+
   let { newCampaignName } = await inquirer.prompt({
     type: 'input',
     name: 'newCampaignName',
@@ -41,6 +43,8 @@ async function createNewCampaign() {
 }
 
 async function createNewFolder(currentFilePath) {
+  console.clear();
+
   let { newFolderName } = await inquirer.prompt({
     type: 'input',
     name: 'newFolderName',
@@ -74,6 +78,8 @@ async function createNewFolder(currentFilePath) {
 }
 
 async function createNewContentItem(datapath) {
+  console.clear();
+
   let { confirmCreateContentItem } = await inquirer.prompt({
     type: 'confirm',
     name: 'confirmCreateContentItem',
@@ -99,6 +105,8 @@ async function createNewContentItem(datapath) {
 }
 
 async function removeCampaign(campaigns) {
+  console.clear();
+
   const backButton = warningStyle('Go Back');
 
   let { campaignToRemove } = await inquirer.prompt({
@@ -145,6 +153,8 @@ async function removeCampaign(campaigns) {
 }
 
 async function removeFolder(currentFilePath, nextFolderOptions) {
+  console.clear();
+
   const backButton = warningStyle('Go Back');
 
   let { folderToRemove } = await inquirer.prompt({
