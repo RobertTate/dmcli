@@ -51,7 +51,7 @@ async function editContentItem(datapath) {
             if (pass) {
               return true;
             }
-            return 'Please enter a valid url.';
+            return 'Please enter a valid url (must include www).';
           }
         });
         content.data['Links'].push(newLink);
