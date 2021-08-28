@@ -28,9 +28,9 @@ Use this option if you'd rather add / edit / remove campaign folders and content
 
 ----
 ## Roll Initiative!
-You can find this option in the main menu, and also at the content level within your campaign. Selecting this option will start up an initiative tracker tool.
+You can find this option in the main menu, and also at the content item level within your campaign. Selecting this option will start up an initiative tracker tool.
 
-If you've preconfigured your campaign with players using the `Edit Campaign Config` option within your top level campaign folder, you have the option of adding those players to an encounter automatically.
+If you have preconfigured your campaign with players using the `Edit Campaign Config` option within your top level campaign folder, you will have the option of adding those players to an encounter automatically.
 
 ----
 
