@@ -1,6 +1,6 @@
 {
   "name": "@robert-tate/dmcli",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A Command Line Tool for Dungeon Masters",
   "main": "cli.js",
   "scripts": {
